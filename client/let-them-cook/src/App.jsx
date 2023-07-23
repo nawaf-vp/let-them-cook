@@ -2,7 +2,7 @@ import {BrowserRouter as Router, Routes , Route } from 'react-router-dom'
 //import {home , auth, createRecipe, savedRecipes } from './pages/index'
 
 
-import './App.css'
+import './index.css'
 import Auth from './pages/auth'
 import Home from './pages/home'
 import CreateRecipe from './pages/createRecipe'

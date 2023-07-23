@@ -1,9 +1,10 @@
 import React from 'react'
-import {Navbar,Login,Register } from './components'
+import {Navbar,Login,Register } from '../components/index'
 
 const Auth = () => {
   return (
     <div className="auth">
+      <Navbar/>
       <Login/>
       <Register/>
     </div>
