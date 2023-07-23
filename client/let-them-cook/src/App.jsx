@@ -7,6 +7,7 @@ import Auth from './pages/auth'
 import Home from './pages/home'
 import CreateRecipe from './pages/createRecipe'
 import SavedRecipes from './pages/savedRecipes'
+import { Navbar } from './components'
 
 
 function App() {
