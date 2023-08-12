@@ -1,11 +1,15 @@
-import React from 'react'
+//import React from "react";
+//import { useNavigate } from "react-router-dom";
+/* import { useState } from "react";
+//import { useCookies } from "react-cookie";
+import axios from "axios"
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const [_, setCookies] = useCookies(["access_token"]);
-  const navigate = useNavigate();
+  /* const [_, setCookies] = useCookies(["access_token"]); */
+  /* const navigate = useNavigate(); 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -49,3 +53,6 @@ const Register = () => {
 };
 
 export default Register
+
+
+ */
