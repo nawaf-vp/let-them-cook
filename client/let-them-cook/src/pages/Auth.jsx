@@ -4,7 +4,7 @@ import {Navbar,Login,Register } from '../components/index'
 const Auth = () => {
   return (
     <div className="auth">
-      <Navbar/>
+      <Navbar />
       <Login/>
       <Register/>
     </div>
