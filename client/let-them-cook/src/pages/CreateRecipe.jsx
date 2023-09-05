@@ -18,9 +18,17 @@ const CreateRecipe = () => {
     setRecipe({...recipe,[name]: value});
   }
 
+  const  handleIngredientChange=(event,idx)=>{
+    const {value}=event.target;
+    const ingredients = recipe.ingredients;
+    ingredients[idx]=value;
+    setRecipe({...recipe,ingredients : ingredients});
+  }
+
   const addIngredient=()=> {
     setRecipe({...recipe,ingredients: [...recipe.ingredients, ""]})
   }
+  console.log(recipe)
   return (
     <>
 {/*   <Navbar/> */}
@@ -36,22 +44,36 @@ const CreateRecipe = () => {
             <img src="biryani.png" className="absolute ml-3 " width="24" alt=" recipe logo"/>
                 <input 
                   id="name"
+                  name="name"
                   type="text"            
                   className="bg-gray-300 rounded-lg pl-12 py-2 md:py-4 focus:outline-none focus:ring focus:ring-gray-400 w-full" 
-                  placeholder="Recipe name" 
+                  placeholder="Recipe name"
+                  onChange={handleChange} 
                 />
                </div>
 
           {/*   Ingredients  */}
-            <div className="flex items-center text-md mb-6 md:mb-8">
-            <img src="ingredients2.png" className="absolute ml-3 " width="24" alt=" ingredient logo"/>
-                <input 
-                   id="ingredients"
-                  type="text"            
-                  className="bg-gray-300 rounded-lg pl-12 py-2 md:py-4 focus:outline-none focus:ring focus:ring-gray-400 w-full" 
-                  placeholder="Ingredients" 
-                />
-               </div>
+           {/*  <div className="flex items-center text-md mb-6 md:mb-8">
+            <img src="ingredients2.png" className="absolute ml-3 " width="24" alt=" ingredient logo"/> */}
+              {recipe.ingredients.map( (ingredient ,idx)=>(
+                  <input
+                     key={idx}
+                     type="text"
+                     name="ingredients"
+                     value={ingredient}
+                     onChange={(event)=> handleIngredientChange(event,idx)}
+                     placeholder="ingredient name"
+                     className="bg-gray-200 mb-5 rounded-lg pl-12 py-2 md:py-4 focus:outline-none focus:ring focus:ring-gray-400 w-full"
+                  />
+
+              ))}
+                      
+                  <button onClick={addIngredient} type="button" className="bg-gray-700 mb-10  hover:bg-amber-400 font-medium p-2 md:p-4 text-white hover:text-black uppercase rounded-lg w-full">
+                    add ingredient
+                  </button>
+              
+             {/*   </div> */}
+
           {/*   instructions  */}
             <div className="flex items-center text-md mb-6 md:mb-8">
             <img src="cooking_instructions.png" className="absolute ml-3 " width="24" alt=" ingredient logo"/>
@@ -62,6 +84,7 @@ const CreateRecipe = () => {
                   className="bg-gray-300 rounded-lg pl-12 py-2 md:py-4 focus:outline-none focus:ring focus:ring-gray-400 w-full" 
                   placeholder="instructions"
                   rows="4" 
+                  onChange={handleChange}
                 >
                 </textarea>
                </div>
@@ -75,7 +98,8 @@ const CreateRecipe = () => {
                   id="imageUrl"
                   name="imageUrl"        
                   className="bg-gray-300 rounded-lg pl-12 py-2 md:py-4 focus:outline-none focus:ring focus:ring-gray-400 w-full" 
-                  placeholder="image url" 
+                  placeholder="image url"
+                  onChange={handleChange} 
                 />
                </div>
         
@@ -88,7 +112,8 @@ const CreateRecipe = () => {
                   id="cookingTime"
                   name="cookingTime"       
                   className="bg-gray-300 rounded-lg pl-12 py-2 md:py-4 focus:outline-none focus:ring focus:ring-gray-400 w-full" 
-                  placeholder="Cooking Time (minutes)" 
+                  placeholder="Cooking Time (minutes)"
+                  onChange={handleChange} 
                 />
                </div>
         
