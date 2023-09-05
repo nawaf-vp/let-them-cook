@@ -5,7 +5,7 @@ import {BrowserRouter as Router, Routes , Route } from 'react-router-dom'
 import './index.css'
 import Auth from './pages/auth'
 import Home from './pages/home'
-import CreateRecipe from './pages/createRecipe'
+import CreateRecipe from './pages/CreateRecipe'
 import SavedRecipes from './pages/savedRecipes'
 import { Login, Navbar, Register } from './components'
 
