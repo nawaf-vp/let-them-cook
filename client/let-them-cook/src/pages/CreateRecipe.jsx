@@ -103,22 +103,7 @@ const CreateRecipe = () => {
         </form>
       </div> 
     </div>
-    {/* 
-      <h2>Create recipe</h2>
-     <form>
-      <label htmlFor="name">Name</label>
-      <input type="text" id="name"/>
       
-      <label htmlFor="ingredients">ingredients</label>
-    
-      <label htmlFor="instructions">instructions</label>
-      <textarea id="instructions" name="instructions"/>
-      <label htmlFor="imageurl">image url</label>
-      <input type="text" id="imageUrl" name="imageUrl"/>
-      <label htmlFor="cookingTime">Cooking Time (minutes)</label>
-      <input type="number" id="cookingTime"/>
-
-     </form> */}  
   </>
   )
 }
