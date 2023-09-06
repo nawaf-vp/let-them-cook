@@ -15,17 +15,30 @@ router.get("/", async (req, res) => {
 });
 
 //create recipe 
+ 
 router.post("/", async (req, res) => {
+     const newRecipe = new RecipeModel(req.body);
+     try {
+         
+         const response = await newRecipe.save();
+         res.status(201).json(response); // Respond with the saved recipe data
+     } catch (err) {
+         res.status(500).json({ err}); // Respond with an error message if there's an issue
+     }
+ });
+
+/* router.post("/", async (req, res) => {
+     try {
     const newRecipe = new RecipeModel(req.body);
     await newRecipe.save();
     res.json({ message: "recipe registered successfully" });
-    try {
+
          const response = await recipe.save();
          res.json(response);
     }catch(err){
-         res.json(err)
+     res.status(500).json(err);
     }
-});
+}); */
 
 //saved recipe
 router.put("/", async (req, res) => {
