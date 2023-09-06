@@ -6,7 +6,7 @@ const RecipeSchema= new mongoose.Schema({  //schema is the structure of the mode
         { type:String, required:true,}, 
     ingredients:
         [{ type:String, required:true}],  // there is an array for ingredients for recipe in DB
-    instruction:
+    instructions:
         { type:String, required:true},
     imageUrl:
         { type:String, required:true},
