@@ -1,17 +1,24 @@
 import { useState } from "react"
+import axios from "axios"
+import { useGetUserID } from "../hooks/useGetUserID";
+import { useNavigate } from "react-router-dom";
 //import { Navbar } from "../components"
 
 
 const CreateRecipe = () => {
+  const userID= useGetUserID();
+  
   const [recipe, setRecipe] = useState({
      name:"",
      ingredients:[],
      instructions:"",
      imageUrl:"",
      cookingTime:0,
-     userOwner:0,
+     userOwner:userID,
 
   });
+
+  const navigate = useNavigate();
 
   const handleChange=(event)=>{
     const {name,value}=event.target;
@@ -28,7 +35,58 @@ const CreateRecipe = () => {
   const addIngredient=()=> {
     setRecipe({...recipe,ingredients: [...recipe.ingredients, ""]})
   }
-  console.log(recipe)
+
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await axios.post(
+        "http://localhost:3001/recipes",
+         {...recipe} 
+        /* {
+          headers: { authorization: cookies.access_token },
+        } */
+      );
+
+      alert("Recipe Created succesfully");
+      navigate("/");
+    } catch (error) {
+      if (error.response) {
+        // The request was made, but the server responded with an error status code
+        console.error("Server responded with an error:", error.response.data);
+      } else if (error.request) {
+        // The request was made, but no response was received
+        console.error("No response received from the server:", error.request);
+      } else {
+        // Something else happened while setting up the request
+        console.error("Error:", error.message);
+      }
+    }
+  };
+
+
+ /*  const onSubmit= async(event)=>{
+    event.preventDefault();
+    try{
+      await axios.post("http://localhost:3001/recipes", recipe);
+      alert(" recipe created");
+    }
+      catch (err) {
+        if (err.response) {
+          // The request was made, but the server responded with an error status code
+          console.error("Server responded with an error:", err.response.data);
+        } else if (err.request) {
+          // The request was made, but no response was received
+          console.error("No response received from the server:", err.request);
+        } else {
+          // Something else happened while setting up the request
+          console.error("Error:", err.message);
+        }
+      }
+    } */
+
+   console.log(recipe);
+
   return (
     <>
 {/*   <Navbar/> */}
@@ -38,14 +96,15 @@ const CreateRecipe = () => {
         <div className="bg-white shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full p-2 md:p-4">
           <img src="Let them cook.png" className="h-11 rounded-1x1" alt="Logo"/>
         </div>
-        <form className="p-12 md:p-24">
+        <form onSubmit={onSubmit} className="p-12 md:p-24">
           {/*   recipe name  */}
             <div className="flex items-center text-md mb-6 md:mb-8">
             <img src="biryani.png" className="absolute ml-3 " width="24" alt=" recipe logo"/>
                 <input 
                   id="name"
                   name="name"
-                  type="text"            
+                  type="text"  
+                  value={recipe.name}          
                   className="bg-gray-300 rounded-lg pl-12 py-2 md:py-4 focus:outline-none focus:ring focus:ring-gray-400 w-full" 
                   placeholder="Recipe name"
                   onChange={handleChange} 
@@ -80,6 +139,7 @@ const CreateRecipe = () => {
             
                 <textarea 
                   id="instructions" 
+                  value={recipe.instructions}
                   name="instructions"        
                   className="bg-gray-300 rounded-lg pl-12 py-2 md:py-4 focus:outline-none focus:ring focus:ring-gray-400 w-full" 
                   placeholder="instructions"
@@ -96,6 +156,7 @@ const CreateRecipe = () => {
                 <input 
                   type="text"
                   id="imageUrl"
+                  value={recipe.imageUrl}
                   name="imageUrl"        
                   className="bg-gray-300 rounded-lg pl-12 py-2 md:py-4 focus:outline-none focus:ring focus:ring-gray-400 w-full" 
                   placeholder="image url"
@@ -109,6 +170,7 @@ const CreateRecipe = () => {
             
                 <input 
                   type="number" 
+                  value={recipe.cookingTime}
                   id="cookingTime"
                   name="cookingTime"       
                   className="bg-gray-300 rounded-lg pl-12 py-2 md:py-4 focus:outline-none focus:ring focus:ring-gray-400 w-full" 
