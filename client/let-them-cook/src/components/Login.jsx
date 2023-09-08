@@ -24,7 +24,8 @@ const Login = () => {
       window.localStorage.setItem("userID", result.data.userID);
       navigate("/");
     } catch (error) {
-      console.error(error);
+      //console.error(error);
+      alert("username or password is incorrect")
     }
   };
 
