@@ -65,28 +65,9 @@ const CreateRecipe = () => {
   };
 
 
- /*  const onSubmit= async(event)=>{
-    event.preventDefault();
-    try{
-      await axios.post("http://localhost:3001/recipes", recipe);
-      alert(" recipe created");
-    }
-      catch (err) {
-        if (err.response) {
-          // The request was made, but the server responded with an error status code
-          console.error("Server responded with an error:", err.response.data);
-        } else if (err.request) {
-          // The request was made, but no response was received
-          console.error("No response received from the server:", err.request);
-        } else {
-          // Something else happened while setting up the request
-          console.error("Error:", err.message);
-        }
-      }
-    } */
-
+ 
    console.log(recipe);
-
+   console.log(userID)
   return (
     <>
 {/*   <Navbar/> */}
