@@ -1,6 +1,7 @@
 import  express  from "express";
 import mongoose from "mongoose";
-import { RecipeModel } from "../models/Recipes.js"
+import { RecipeModel } from "../models/Recipes.js";
+import {UserModel} from "../models/Users.js"
 import { verifyToken } from "./users.js";
 const router = express.Router();                                                                    
 
@@ -8,13 +9,14 @@ const router = express.Router();
 router.get("/", async (req, res) => {
     try {
          const response = await RecipeModel.find({});
-         res.json(response);
+         res.status(200).json(response);
     }catch(err){
-         res.json(err)
+         res.status(500).json(err);
     }
 });
 
-//create recipe 
+
+//create a new recipe 
  
 router.post("/",verifyToken, async (req, res) => {
      const newRecipe = new RecipeModel(req.body);
@@ -38,23 +40,23 @@ router.get("/:recipeId",verifyToken, async (req, res) => {
    });
 
 //save a recipe
-router.put("/",verifyToken, async (req, res) => {
-
+router.put("/", async (req, res) => {
+     const recipe= await RecipeModel.findById(req.body.recipeID);
+     const user= await UserModel.findById(req.body.userID);
      try {
-          const recipe= await RecipeModel.findById(req.body.recipeID);
-          const user= await userModel.findById(req.body.userID);
+         
           user.savedRecipes.push(recipe);
           await user.save();
-          res.json({savedRecipes:user.savedRecipes});
+          res.status(201).json({savedRecipes:user.savedRecipes});
      }catch(err){
-          res.json(err)
+          res.status(500).json(err)
      }
  });
 
  //to get saved recipes
  router.get("/savedRecipes/ids/:userID", async (req, res) => {
      try {
-          const user= await userModel.findById(req.params.userID);
+          const user= await UserModel.findById(req.params.userID);
           res.json({savedRecipes:user?.savedRecipes});
      }catch(err){
           res.json(err)
@@ -64,7 +66,7 @@ router.put("/",verifyToken, async (req, res) => {
 
  router.get("/savedRecipes/:userID", async (req, res) => {
      try {
-          const user= await userModel.findById(req.params.userID);
+          const user= await UserModel.findById(req.params.userID);
           const savedRecipes= await RecipeModel.findById({
                _id:{$in:user.savedRecipes}
 
