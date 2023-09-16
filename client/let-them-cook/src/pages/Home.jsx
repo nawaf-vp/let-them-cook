@@ -191,20 +191,20 @@ export const Home = () => {
           <h4 className="font-bold mt-12 pb-2 border-b border-gray-200">
             Latest Recipes
           </h4>
-          <div className="mt-8 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div /* className="mt-8 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10" */>
            
            {/* recipe 1 */}
-           <ul>
+           <ul  className="mt-8 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10" >
               {recipes.map((recipe) => (
               <li key={recipe._id}>
-                <div className="card rounded-xl shadow-xl py-2 px-2 hover:shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]">
+                <div className="card rounded-xl shadow-xl py-4 px-2 hover:scale-105 hover:shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]">
                 <img
                   src="https://i.ibb.co/tpCdNcX/stew.jpg"
                   alt="stew"
                   className="w-full h-32 sm:h-48 rounded-md object-cover"
                 />
                 <div className="m-4">
-                  <span className="font-bold">beef</span>
+                  <span className="font-bold">{recipe.name}</span>
                   <span className="block text-gray-500 text-sm">Recipe by Mario</span>
                 </div>
 
@@ -225,9 +225,12 @@ export const Home = () => {
                       d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
-                  <span>25 mins</span>
+                  <span> mins</span>
                 </div>
-                <div className="button flex  justify-end ">
+                <div
+                  className="button flex  justify-end "
+                  onClick={() => saveRecipe(recipe._id)}
+                >
                 {isRecipeSaved(recipe._id)?
                   <svg 
                     xmlns="http://www.w3.org/2000/svg" 
