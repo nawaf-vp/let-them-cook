@@ -2,12 +2,16 @@
  import { useNavigate } from "react-router-dom";
  import { useState } from "react";
 import { useCookies } from "react-cookie";
-import axios from "axios"
+import axios from "axios";
+import Alert from "./Alert";
+
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false); // State to control the success message
+  const [showFailedMessage, setShowFailedMessage] = useState(false); // State to control the success message
+  
    const [ _ , setCookies] = useCookies(["access_token"]); 
    const navigate = useNavigate(); 
 
@@ -18,14 +22,25 @@ const Register = () => {
         username,
         password,
       });
-      alert("Registration Completed! Now login.");
+      setShowSuccessMessage(true);
+      
     } catch (error) {
+      setShowFailedMessage(true)
       console.error(error);
     }
   };
 
   return (
     <>
+      
+      { showSuccessMessage && (
+        <Alert message="Registration Completed! Now login." />
+      )}
+      
+      { showFailedMessage && (
+        <Alert message="Registration failed" />
+      )}
+      
       <div className="bg-white h-screen overflow-hidden flex items-center justify-center">
        <div className="bg-white rounded-xl pt-20 lg:w-4/12 md:6/12 w-10/12 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] ">
            <div className="bg-white shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full p-4 md:p-8">
