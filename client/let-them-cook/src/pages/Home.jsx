@@ -230,6 +230,7 @@ export const Home = () => {
                 <div
                   className="button flex  justify-end "
                   onClick={() => saveRecipe(recipe._id)}
+                  disabled={isRecipeSaved(recipe._id)}
                 >
                 {isRecipeSaved(recipe._id)?
                   <svg 
