@@ -5,7 +5,11 @@ import PropTypes from "prop-types";
 
 const Alert = ({ message }) => {
   return (
-    <div role="alert" className="z-40 mt-10 rounded-xl border border-gray-100 bg-white p-4">
+    <div role="alert" 
+         className="fixed top-0 right-0
+          z-50 rounded-xl border border-gray-100 bg-white p-4"
+         style={{ zIndex: 9999 }} // Set a high z-index value to ensure it's on top
+     >
   <div className="flex items-start gap-4">
     <span className="text-green-600">
       <svg
