@@ -31,14 +31,12 @@ const Login = () => {
 
   return (
     <>
-    <div className="bg-white h-screen overflow-hidden flex items-center justify-center">
-       <div className="bg-white shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] rounded-xl lg:w-4/12 md:6/12 w-10/12 ">
-           <div className="bg-white shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full p-4 md:p-8">
-            
-           <img src="Let them cook.png" className="h-11 rounded-1x1" alt="Logo"/>
+  <div className="bg-white h-screen pt-10 overflow-hidden flex flex-col items-center justify-center">
+       <div className="bg-white rounded-xl  lg:h-200 lg:w-4/12 md:6/12 w-10/12 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] ">
+           <div className="bg-white sm:h-10  sm:w-10 sm:mb-10 lg:h-20 lg:w-20  absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full p-2 md:p-4 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] ">
+             <img src="Let them cook.png" className="h-9 md:h-11 rounded-1x1" alt="Logo"/>
            </div>
-           <form className="p-12 md:p-24" onSubmit={handleSubmit}>
-             
+          <form className="px-6 md:px-12 py-6 md:py-12" onSubmit={handleSubmit}>       
                <div className="flex items-center text-lg mb-6 md:mb-8">
                 <svg className="absolute ml-3" width="24" viewBox="0 0 24 24">
                  <path d="M20.822 18.096c-3.439-.794-6.64-1.49-5.09-4.418 4.72-8.912 1.251-13.678-3.732-13.678-5.082 0-8.464 4.949-3.732 13.678 1.597 2.945-1.725 3.641-5.09 4.418-3.073.71-3.188 2.236-3.178 4.904l.004 1h23.99l.004-.969c.012-2.688-.092-4.222-3.176-4.935z"/>
@@ -64,12 +62,13 @@ const Login = () => {
                    className="bg-gray-300 rounded-lg pl-12 py-2 md:py-4 focus:outline-none focus:ring focus:ring-gray-400 w-full" 
                    placeholder="Password" />
                 </div>
-          <button type="submit" className="bg-gray-700  hover:bg-amber-400 font-medium p-2 md:p-4 text-white hover:text-black uppercase rounded-lg w-full">
-            Login
-          </button>
-          <p className="text-sm mt-2 font-light text-gray-900 dark:text-gray-800">
-                      Don’t have an account? <a href="/register" className="font-medium mt-5 text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
-                  </p>
+                <button type="submit" className="bg-gray-700  hover:bg-amber-400 font-medium p-2 md:p-4 text-white hover:text-black uppercase rounded-lg w-full">
+                  Login
+                </button>
+                <p className="text-sm mt-2 font-light text-gray-900 dark:text-gray-800">
+                      Don’t have an account? 
+                      <a href="/register" className="font-medium mt-5 text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
+                </p>
     </form>
   </div>
  </div>
