@@ -73,10 +73,10 @@ const CreateRecipe = () => {
 {/*   <Navbar/> */}
    <div className="bg-white  overflow-hidden flex items-center justify-center pt-50">
     <div className="bg-white mt-40   shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] rounded-xl lg:w-4/12 md:6/12 w-10/12 ">
-      
+      {/* 
         <div className="bg-white shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full p-2 md:p-4">
           <img src="Let them cook.png" className="h-11 rounded-1x1" alt="Logo"/>
-        </div>
+        </div> */}
         <form onSubmit={onSubmit} className="p-12 md:p-16">
           {/*   recipe name  */}
             <div className="flex items-center text-md mb-6 md:mb-8">
@@ -116,7 +116,7 @@ const CreateRecipe = () => {
 
           {/*   instructions  */}
             <div className="flex items-center text-md mb-6 md:mb-8">
-            <img src="cooking_instructions.png" className="absolute ml-3 " width="24" alt=" ingredient logo"/>
+            <img src="cooking_instructions.png" className="absolute ml-3 mb-14" width="24" alt=" ingredient logo"/>
             
                 <textarea 
                   id="instructions" 

@@ -49,7 +49,19 @@ const Navbar = () => {
           Home
         </Link>
       </li>
+      {/* <li>
+      <Link to="/createRecepies"  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-400 md:p-0 md:dark:hover:text-amber-400 dark:text-white">
+          Create Recipes
+        </Link>
+      </li>
       <li>
+      <Link to="/savedRecipes"  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0  dark:text-white dark:hover:text-amber-400">
+          Saved Recipes
+          </Link>
+      </li> */}
+      {cookies.access_token && 
+      <>
+         <li>
       <Link to="/createRecepies"  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-400 md:p-0 md:dark:hover:text-amber-400 dark:text-white">
           Create Recipes
         </Link>
@@ -59,7 +71,11 @@ const Navbar = () => {
           Saved Recipes
           </Link>
       </li>
-     
+      </> 
+
+      }
+
+
     </ul>
   </div>
   </div>
