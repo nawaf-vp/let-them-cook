@@ -108,7 +108,7 @@ export const Home = () => {
           </h4>
           <div /* className="mt-8 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10" */>
            
-           {/* recipe 1 */}
+           {/* recipe card  */}
            <ul  className="mt-8 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10" >
               {recipes.map((recipe) => (
               <li key={recipe._id}>
@@ -219,17 +219,4 @@ export default Home;
 
 
 
-                      {/*    <div>
-                              <h2 className='text-black'>{recipe.name}</h2>
-                              <button 
-                                  onClick={()=> saveRecipe(recipe._id)}
-                                  disabled={isRecipeSaved(recipe._id)}
-                                >
-                                {isRecipeSaved(recipe._id)? "saved" : "save"}
-                              </button>
-                          </div>
-                          <div className="instructions">
-                              <p>{recipe.instructions}</p>
-                          </div>
-                            <img src={recipe.imageUrl} alt={recipe.name} />
-                            <p>Cooking Time: {recipe.cookingTime} minutes</p> */}
+                    
