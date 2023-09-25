@@ -208,66 +208,7 @@ export const Home = () => {
       </main>
     </div>
 </div>
-     {/*  <Navbar/>
-      <div>
-        <header>
-          <h2 className="text-gray-700 text-6xl font-semibold">Recipes</h2>
-          <h3 className="text-2xl font-semibold">For Little</h3>
-        </header>
-      <div className="">
-        <h4 className="font-bold mt-12 pb-2 border-b border-gray-200">
-          Latest Recipes
-        </h4>
-        <main
-        className="bg-gray-100 px-16 py-6 md:col-span-2 lg:col-span-3 min-h-screen"
-      >
-        <ul>
-          {recipes.map((recipe)=>(
-            <li key={recipe._id}>
-
-              <div className="">
-              <h4 className="font-bold mt-12 pb-2 border-b border-gray-200">
-                Latest Recipes
-              </h4>
-              <div className="mt-8 grid lg:grid-cols-3 gap-10">
-                <div className="card hover:shadow-lg">
-                  <img
-                    src={recipe.imageUrl} 
-                    alt={recipe.name}
-                    className="w-full h-32 sm:h-48 object-cover"
-                  />
-                  <div className="m-4">
-                      <span className="font-bold">{recipe.name}</span>
-                      <span className="block text-gray-500 text-sm">Recipe by Mario</span>
-                  </div>
-                  <div className="badge">
-                      <svg
-                        className="w-5 inline-block"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                      <span> {recipe.cookingTime} mins</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            </li>
-            ))}
-            
-          
-         </ul>
-         </main>
-        </div>
-      </div> */}
+   
     </>
   );
 };
