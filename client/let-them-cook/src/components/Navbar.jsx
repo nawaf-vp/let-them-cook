@@ -31,7 +31,7 @@ const Navbar = () => {
       </> 
 
      ) : (
-      <button  onClick={logout}  type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center ml-3 sm:mr-4 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+      <button  onClick={logout}  type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center ml-3 sm:mr-4 dark:bg-gray-900 dark:border-solid border-2 border-white-500 dark:hover:bg-stone-300 dark:focus:ring-blue-800">
         Logout
       </button>
       )}; 
@@ -42,8 +42,11 @@ const Navbar = () => {
         </svg>
     </button>
   </div>
+  {cookies.access_token && 
+      <>
   <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
     <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+      
       <li>
       <Link to="/"  className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-white md:p-0 md:dark:text-white dark:text-white dark:hover:text-amber-400" aria-current="page">
           Home
@@ -59,8 +62,7 @@ const Navbar = () => {
           Saved Recipes
           </Link>
       </li> */}
-      {cookies.access_token && 
-      <>
+      
          <li>
       <Link to="/createRecepies"  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-400 md:p-0 md:dark:hover:text-amber-400 dark:text-white">
           Create Recipes
@@ -71,13 +73,15 @@ const Navbar = () => {
           Saved Recipes
           </Link>
       </li>
-      </> 
+     
 
-      }
+      
 
 
     </ul>
   </div>
+  </>
+}
   </div>
 </nav>
 
