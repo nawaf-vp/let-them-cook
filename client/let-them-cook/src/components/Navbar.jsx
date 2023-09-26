@@ -19,7 +19,7 @@ const Navbar = () => {
             <img src="Let them cook.png" className="h-8 mr-3 rounded-2xl" alt="Logo"/>
             <span className="self-center sm:text-md md:text-xl  font-semibold whitespace-nowrap dark:text-white ">Let them cook</span>
          </a>
-   <div className="flex md:order-2 gap-4">
+   <div className="flex md:order-2  gap-2 md:gap-4">
   {!cookies.access_token ? ( 
     <>
        <button onClick={() => {navigate("/login")}} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -31,7 +31,7 @@ const Navbar = () => {
       </> 
 
      ) : (
-      <button  onClick={logout}  type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center ml-3 sm:mr-4 dark:bg-gray-900 dark:border-solid border-2 border-white-500 dark:hover:bg-blue-950 dark:focus:ring-blue-800">
+      <button  onClick={logout}  type="button" className=" text-white bg-blue-700 hover:bg-blue-800  focus:ring-4 focus:outline-none focus:ring-blue-300  font-medium rounded-lg text-sm px-2 py-1 sm:px-4 sm:py-2 text-center ml-3 sm:mr-4 dark:bg-gray-900 dark:border-solid border-2 border-white-500 dark:hover:bg-blue-950 dark:focus:ring-blue-800">
         Logout
       </button>
       )}; 
