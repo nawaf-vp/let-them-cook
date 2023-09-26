@@ -59,7 +59,7 @@ export const Home = () => {
         
       fetchRecipes();
       fetchSavedRecipes();
-      }, []);
+      }, [userID]);
 
 
   const saveRecipe= async(recipeID)=>{
@@ -99,17 +99,17 @@ export const Home = () => {
       >
         
         <header>
-          <h2 className="text-gray-700 text-6xl font-semibold">Recipes</h2>
-          <h3 className="text-2xl font-semibold">For Little ones</h3>
+          <h2 className="mb-2 text-gray-700 text-5xl font-semibold">Recipes</h2>
+          <h3 className="pl-10 text-2xl font-semibold"> For <span className='text-yellow-500'>Little ones</span></h3>
         </header>
         <div className="">
-          <h4 className="font-bold mt-12 pb-2 border-b border-gray-200">
+          <h3 className="text-xl  font-bold mt-12 pb-1 border-b border-gray-200">
             Latest Recipes
-          </h4>
+          </h3>
           <div /* className="mt-8 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10" */>
            
            {/* recipe card  */}
-           <ul  className="mt-8 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10" >
+           <ul  className="mt-5 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10" >
               {recipes.map((recipe) => (
               <li key={recipe._id}>
                 <div className="card rounded-xl shadow-xl py-4 px-2 hover:scale-105 hover:shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]">
