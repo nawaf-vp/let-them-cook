@@ -8,4 +8,5 @@
 </ul>
 <br>
 
-![Screenshot 2023-08-20 012459](https://github.com/nawaf-vp/let-them-cook/assets/102661016/49144f06-af57-4c05-81a2-0325ef91b171)
+
+![let them cook](https://github.com/nawaf-vp/let-them-cook/assets/102661016/09bf23fc-9a68-4b8d-826a-8e9d93fa25d5)
